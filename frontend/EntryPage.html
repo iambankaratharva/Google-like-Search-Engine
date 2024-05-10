@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("background_img.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 0; 
+            margin: 0;
+            min-height: 100vh; 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .search-container {
+            margin: 20px;
+        }
+
+        .search-form {
+            position: relative; 
+            display: inline-block;
+            width: 100%;
+            max-width: 1800px; 
+        }
+
+        #searchInput {
+            font-size: 16px; 
+            width: calc(100% - 90px); 
+            padding: 12px;
+            border: 2px solid #ffffff; 
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.8); 
+            color: #333;
+        }
+
+        .search-form button {
+            width: 80px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ffffff; 
+            color: #007bff;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .search-form button:hover {
+            background-color: #ADD8E6;
+        }
+
+        #autocompleteResults {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            margin-top: 2px;
+            border: 1px solid #dfe1e5;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+            background-color: #fff;
+            color: #333;
+            z-index: 100;
+            display: none; 
+        }
+
+        .autocomplete-results .suggestion {
+            padding: 12px 20px;
+            font-size: 16px;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .autocomplete-results .suggestion:hover {
+            background-color: #ececec;
+        }
+    </style>
+    <title>VidyaVista</title>
+</head>
+<body>
+<div class="search-container">
+    <form class="search-form" action="ResultsPage.html" method="GET" autocomplete="off">
+        <input type="search" id="searchInput" name="query" placeholder="Search..." required />
+        <button type="submit" id="searchButton">Search</button>
+        <div id="autocompleteResults" class="autocomplete-results">
+        </div>
+    </form>
+</div>
+<script src="EntryPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: "Verdana", sans-serif;
+        background: linear-gradient(to right, #e6f1ff, #ffffff);
+        text-align: left;
+        height: auto;
+        margin: 0;
+        background-color: rgb(196, 196, 215);
+        transition: opacity 700ms;
+        background-image: url("background_img.jpg");
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-size: 100%;
+        background-attachment: fixed;
+      }
+
+      .search_results-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+          opacity: 0.9;
+          width: 80%; /* Sets the width to fill the parent element */
+          margin: auto; /* This centers the container if max-width is less than the parent width */
+    }
+
+
+      #searchResults {
+        background-color: white;
+        width: 90%;
+       
+        margin: 20px auto;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        display: none;
+      }
+
+      .resultItem {
+        border-bottom: 1px solid #ccc;
+        padding: 15px;
+        background: #fff; 
+        margin-bottom: 10px; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .resultItem:last-child {
+        border-bottom: none;
+      }
+
+      .resultItem h3 {
+        margin: 0;
+        padding: 0;
+        color: #1a0dab;
+      }
+
+      .resultItem u {
+        font-size: small;
+        text-decoration: none;
+        margin: 5px 0;
+        color: #000000;
+      }
+
+      .resultItem a {
+        text-decoration: none;
+        color: #1a0dab;
+      }
+
+      .resultItem p {
+        margin: 5px 0;
+        color: #000000;
+      }
+
+      .resultItem a:hover {
+        text-decoration: underline;
+      }
+
+      .search-header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        align-items: left;
+        padding: 10px;
+        background-color: #f8f9fa;
+        z-index: 100;
+      }
+
+      .search-form {
+        flex-grow: 1;
+      }
+
+      .search-form input[type="search"] {
+        font-family: "Verdana", sans-serif;
+        width: 50%;
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+      }
+
+      .search-form button {
+        font-family: "Verdana", sans-serif;
+        width: 80px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        background-color: #f8f9fa;
+        cursor: pointer;
+      }
+
+      .search-form button:hover {
+        padding: 10px 20px;
+        background-color: #ADD8E6;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      .search-nav ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+      }
+
+      .search-nav li {
+        margin-right: 20px;
+      }
+
+      .search-nav a {
+        text-decoration: none;
+        color: #202124;
+        font-weight: bold;
+      }
+
+      .search-nav a:hover {
+        text-decoration: underline;
+      }
+
+      #searchInput {
+        width: 50%;
+        padding: 12px 24px;
+        font-size: 16px;
+        border: 1px solid #dfe1e5;
+        border-radius: 24px;
+        box-shadow: none;
+      }
+
+      #autocompleteResults {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 45%;
+        margin-top: -1px;
+        border: 1px solid #dfe1e5;
+        border-top: none;
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 100;
+      }
+
+      .autocomplete-results .suggestion {
+        padding: 12px 24px; 
+        font-size: 16px; 
+        line-height: 1.3;
+        border-bottom: 1px solid #e0e0e0;
+       
+      }
+      .autocomplete-results .suggestion:hover {
+        background-color: #f8f9fa;
+      }
+    </style>
+    <title>VidyaVista</title>
+    <link rel="stylesheet" href="ResultsPage.css" />
+  </head>
+  <body>
+    <header class="search-header">
+      <form class="search-form" action="ResultsPage.html" method="GET" autocomplete="off">
+        <input type="search" id="searchInput" name="query" placeholder="Search..." />
+        <button type="submit" id="searchButton">Search</button>
+        <div id="autocompleteResults" class="autocomplete-results">
+        </div>
+      </form>
+
+    </header>
+
+    <nav class="search-nav">
+    </nav>
+    <div class="search_results-container">
+      <div id="searchResults">
+      </div>
+    </div>
+
+    <script src="ResultsPage.js"></script>
+  </body>
+</html>
