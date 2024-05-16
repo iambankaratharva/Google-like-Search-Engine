@@ -33,8 +33,7 @@ public class RankerStarter {
 
         String kvsAddr = args[1];
         KVSClient client = new KVSClient(kvsAddr);
-        // final long totalDocuments = client.count("pt-crawl");
-        final long totalDocuments = 202609;
+        final long totalDocuments = client.count("pt-crawl");
         System.out.println("Total Documents: " + totalDocuments);
         List<String> indexList = new ArrayList<>();
         Iterator<Row> iterator = client.scan("pt-index");
